@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-from setuptools import setup
-from src.amsterdam import AMSTERDAM_VERSION
 import os
+
+from setuptools import setup
+
+from src.amsterdam import AMSTERDAM_VERSION
 
 data_files = []
 dir_list = ['docker', 'config', 'templates']
@@ -14,7 +16,6 @@ for directory in dir_list:
                 data_files.append(path)
 os.chdir('..')
 
-
 setup(name='amsterdam',
       version=AMSTERDAM_VERSION,
       description='Suricata, ELK, Scirius on Docker',
@@ -23,7 +24,7 @@ setup(name='amsterdam',
       url='https://github.com/StamusNetworks/amsterdam',
       scripts=['amsterdam'],
       packages=['amsterdam'],
-      package_dir={'amsterdam':'src'},
+      package_dir={'amsterdam': 'src'},
       package_data={'amsterdam': data_files},
       provides=['amsterdam'],
       install_requires=['argparse', "docker-compose", 'pyOpenSSL'],
@@ -35,5 +36,5 @@ setup(name='amsterdam',
           'Operating System :: POSIX',
           'Programming Language :: Python',
           'Topic :: Security',
-          ],
+      ],
       )
